@@ -1,22 +1,44 @@
-import {Component, OnDestroy} from '@angular/core';
-import {Router} from "@angular/router";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../../components/dialog/dialog.component";
-import {DialogService} from "../../services/dialog.service";
-import {Subscription} from "rxjs";
+import {CarouselService} from "../../services/carousel.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent{
-
+export class LoginComponent implements OnInit, OnDestroy{
   constructor(private router: Router,
               private dialog: MatDialog,
-              private dialogDataService: DialogService) {
+              private route: ActivatedRoute,
+              private carouselService: CarouselService) {
 
   }
+
+  showRoles: any;
+  begin: any;
+  showButton: any;
+
+  ngOnInit() {
+    this.begin = this.carouselService.getBegin();
+    this.showRoles = this.carouselService.getShowRoles();
+    this.showButton = this.carouselService.getShowButton();
+    console.log('login-begin', this.begin);
+    console.log('login-showRoles', this.showRoles);
+    console.log('login-showButton', this.showButton);
+  }
+
+  ngOnDestroy(): void {
+    this.carouselService.stopCarousel();
+  }
+
+  images: string[] = [
+    'assets/image2.png',
+    'assets/background-home.png',
+    'assets/image3.png'
+  ];
 
   frase1: string = '';
   frase2: string = '';
@@ -28,7 +50,6 @@ export class LoginComponent{
   tip: string = '';
   titleDialog: string = '';
   showErrorMessage: boolean = false;
-  showRoles: boolean = true;
   showTip: boolean = false;
 
   login() {
@@ -41,12 +62,12 @@ export class LoginComponent{
 
   goNextStep() {
     this.showErrorMessage = false;
-    this.showRoles = false;
+    this.begin = false;
   }
 
   backToRoles() {
     this.showErrorMessage = false;
-    this.showRoles = true;
+    this.begin = true;
   }
 
   randomTips(){

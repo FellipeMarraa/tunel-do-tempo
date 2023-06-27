@@ -1,4 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {CarouselService} from "../../services/carousel.service";
 
 @Component({
   selector: 'app-carousel',
@@ -7,35 +9,51 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class CarouselComponent implements OnInit, OnDestroy {
 
+  constructor(private router: Router,
+              public carouselService: CarouselService,
+              private route: ActivatedRoute) {
+  }
+
   images: string[] = [
-    'assets/image2.jpg',
+    'assets/image2.png',
     'assets/background-home.png',
-    'assets/image3.jpg'
+    'assets/image3.png'
   ];
 
-  activeIndex = 0;
-  interval: any;
+  showRoles: boolean = this.carouselService.getShowRoles();
+  showButton: boolean = this.carouselService.getShowButton();
+  begin: boolean = this.carouselService.getBegin();
+  timeInternal: any;
 
   ngOnInit(): void {
-    this.startCarousel();
+
+    if (!this.begin) {
+      this.timeInternal = setTimeout(() => {
+        this.showButton = this.carouselService.setShowButton(true);
+        console.log(this.showButton);
+      }, 10000);
+    }
+
+    this.carouselService.startCarousel(this.images);
   }
 
   ngOnDestroy(): void {
-    this.stopCarousel();
-  }
-
-  startCarousel(): void {
-    this.interval = setInterval(() => {
-      this.activeIndex = (this.activeIndex + 1) % this.images.length;
-    }, 3000); // Defina o intervalo de tempo entre as transições de imagem (em milissegundos)
-  }
-
-  stopCarousel(): void {
-    clearInterval(this.interval);
+    this.carouselService.stopCarousel();
   }
 
   getBackgroundStyle(image: string, index: number): object {
-    return { 'background-image': `url(${image})`, 'z-index': index };
+    return {'background-image': `url(${image})`, 'z-index': index};
   }
 
+  start() {
+    this.begin = this.carouselService.setBegin(true);
+    this.showButton = this.carouselService.setShowButton(true);
+    this.showRoles = this.carouselService.setShowRoles(true);
+    this.router.navigate(['/home']);
+
+    console.log('carousel-begin', this.begin);
+    console.log('carousel-button', this.showButton);
+    console.log('carousel- role', this.showRoles);
+
+  }
 }

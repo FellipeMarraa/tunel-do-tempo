@@ -1,9 +1,25 @@
-<div class="body">
-  <div class="carousel-container">
+<div class="body" *ngIf="!showButton">
+
+    <div class="carousel-container">
+      <div *ngFor="let image of images; let i = index" [ngStyle]="getBackgroundStyle(image, i)"
+           [class.active]="i === carouselService.activeIndex"></div>
+    </div>
+    <div class="content">
+
+    </div>
+
+</div>
+
+
+<div class="body" *ngIf="showButton">
+
+  <div class="carousel-container-noButton">
     <div *ngFor="let image of images; let i = index" [ngStyle]="getBackgroundStyle(image, i)"
-         [class.active]="i === activeIndex"></div>
+         [class.active]="i === carouselService.activeIndex"></div>
   </div>
   <div class="content">
-    <app-login></app-login>
+    <button *ngIf="!begin" mat-raised-button color="primary" style="margin-left: 45%; margin-top: 20%" (click)="start()">Começar</button>
+    <app-home *ngIf="!showButton"></app-home>
   </div>
+
 </div>
