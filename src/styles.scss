@@ -12,6 +12,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $tunel-do-tempo-primary: mat.define-palette(mat.$indigo-palette);
+$tunel-do-tempo-warning: mat.define-palette(mat.$yellow-palette);
 $tunel-do-tempo-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -24,8 +25,12 @@ $tunel-do-tempo-theme: mat.define-light-theme((
     primary: $tunel-do-tempo-primary,
     accent: $tunel-do-tempo-accent,
     warn: $tunel-do-tempo-warn,
+    warning: $tunel-do-tempo-warning
   )
 ));
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;

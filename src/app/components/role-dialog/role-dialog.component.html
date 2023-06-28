@@ -1,0 +1,70 @@
+<p class="font-amatic font-bold text-5xl ml-5 mt-2" xmlns="http://www.w3.org/1999/html">Regras do jogo</p>
+<mat-dialog-content class="font-amatic custom-dialog-content">
+  <div *ngIf="isInitialPage">
+    <p class="font-amatic text-3xl font-bold" *ngIf="paginaAtual === 1 && isInitialPage">Bem vinda ao Túnel do Tempo, esse
+      website foi desenvolvido porque você disse que gostava de desafios!<br>
+      O jogo se chama "Túnel do tempo" porque nele haverá perguntas sobre todos os anos de relacionamento
+      que compartilhamos! Será que você lembra de todas as respostas?<br>
+      Se não lembrar, não se preocupe... O apartamento está todo enfeitado não é atoa, se
+      procurar direitinho
+      você vai encontrar as respostas!<br> Vamos para as regras?</p>
+  </div>
+
+  <div *ngIf="paginaAtual === 2">
+
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 1:</b> As respostas do jogo estão
+      ocultas no apartamento, você precisará procurá-las.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 2:</b> No topo da tela haverá um ícone de lâmpada,
+      isso indica que você poderá pedir dica
+      de onde
+      pode estar a resposta. As dicas são limitadas.
+    </p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 3:</b> O jogo só irá avançar para a próxima
+      pergunta se você responder corretamente a
+      pergunta na
+      tela.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 4:</b> Algumas portas estão trancadas, considere
+      isso como fases do jogo, à medida que você
+      avançar, encontrará as chaves para abrir e avançar para o próximo nível.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 5:</b> A suíte é a fase final, não pule etapas,
+      visto que todas as chaves funcionam para
+      todas as
+      portas.</p>
+  </div>
+
+  <div *ngIf="paginaAtual === 3">
+
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 6:</b> Não saia procurando freneticamente pelo
+      apartamento, isso pode fazer você encontrar
+      itens que ainda não deveriam ser encontrados.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 7:</b> Siga as perguntas orientadoras de cada
+      questão e pense antes de agir, pode
+      economizar um bom tempo.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 8:</b> TODAS as respostas em formato de texto,
+      deverão ser escritas em caixa alta e sem
+      caracteres especiais (ascentos, cedilhas, etc).</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 9:</b> TODAS as respostas em formato de datas,
+      deverão ser respondidas pelo input de data
+      na tela.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 10:</b> O jogo não é salvo localmente, então não
+      atualize a página se não perderá todo o
+      progresso.</p>
+    <p class="font-amatic text-3xl"><b class="font-bold">Regra número 11:</b> Entregue-se ao game e divirta-se. A
+      recompensa será gratificante para você.</p>
+
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button *ngIf="paginaAtual !== 1 && isInitialPage" (click)="backwardPage()" style="float: left">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button mat-button *ngIf="paginaAtual !== 3" (click)="goNextPage()">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+  <button class="font-amatic text-2xl" mat-button mat-dialog-close *ngIf="paginaAtual == 3 && isInitialPage"
+          (click)="startGame()">Começar
+  </button>
+  <button class="font-amatic text-2xl" mat-button mat-dialog-close *ngIf="paginaAtual == 3 && !isInitialPage">Entendido
+  </button>
+</mat-dialog-actions>

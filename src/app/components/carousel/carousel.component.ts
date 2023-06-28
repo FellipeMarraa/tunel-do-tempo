@@ -34,7 +34,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
       }, 0);
     }
 
-    console.log(this.begin);
 
     this.carouselService.startCarousel(this.images);
   }

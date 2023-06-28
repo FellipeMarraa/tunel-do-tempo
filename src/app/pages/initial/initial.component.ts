@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {CarouselService} from "../../services/carousel.service";
+import {Component, OnInit, Renderer2} from '@angular/core';
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {RoleDialogComponent} from "../../components/role-dialog/role-dialog.component";
+import {DialogService} from "../../services/dialog.service";
 
 @Component({
   selector: 'app-initial',
@@ -9,15 +11,42 @@ import {CarouselService} from "../../services/carousel.service";
 })
 export class InitialComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute,
-              private carouselService: CarouselService) {
+  constructor(private router: Router,
+              private renderer: Renderer2,
+              private dialog: MatDialog,
+              private dialogService: DialogService) {
   }
 
-  begin: any;
 
-  ngOnInit() {
-    this.carouselService.setBegin(true);
-    this.begin = this.carouselService.getBegin();
- }
+    ngOnInit() {
+      this.renderer.setStyle(document.body, 'background-image', 'url(./assets/image3.png)');
+      this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
+      this.renderer.setStyle(document.body, 'background-size', 'cover');
+  }
 
+  startGame() {
+    this.router.navigate(['/game']);
+  }
+
+  ourHistory() {
+    this.router.navigate(['/history']);
+  }
+
+  goPhotos() {
+    this.router.navigate(['/photo']);
+  }
+
+  goVideos() {
+    this.router.navigate(['/video']);
+  }
+
+  roles() {
+
+    this.dialogService.setInicialPage(true);
+
+    const dialogRef = this.dialog.open(RoleDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 }

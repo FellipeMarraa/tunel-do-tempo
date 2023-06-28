@@ -1,16 +1,18 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from "./pages/home/home.component";
-import {CarouselComponent} from "./components/carousel/carousel.component";
-import {QuestionsComponent} from "./pages/questions/questions.component";
 import {InitialComponent} from "./pages/initial/initial.component";
+import {GameComponent} from "./pages/game/game.component";
+import {HistoryComponent} from "./pages/history/history.component";
+import {PhotoComponent} from "./pages/photo/photo.component";
+import {VideoComponent} from "./pages/video/video.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'begin', pathMatch: 'full'},
-  { path: 'begin', component: CarouselComponent},
+  { path: '', redirectTo: 'initial', pathMatch: 'full'},
   {path: 'initial', component: InitialComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'questions', component: QuestionsComponent},
+  {path: 'game', component: GameComponent},
+  {path: 'history', component: HistoryComponent},
+  {path: 'photo', component: PhotoComponent},
+  {path: 'video', component: VideoComponent},
 
 ];
 

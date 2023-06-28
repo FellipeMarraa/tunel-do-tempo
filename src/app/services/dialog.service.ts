@@ -4,13 +4,25 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class DialogService {
-  private dialogData: string = '';
 
-  setDialogData(data: any): void {
-    this.dialogData = data;
+  isInitialPage: any;
+  paginaAtual: any = 1;
+
+  setInicialPage(isInitial: any): void {
+    this.isInitialPage = isInitial;
   }
 
-  getDialogData(): string {
-    return this.dialogData;
+  getIsInicialPage(): string {
+    return this.isInitialPage;
   }
+
+  setPaginaAtual(paginaAtual: any){
+    this.paginaAtual = paginaAtual;
+  }
+
+  getPaginaAtual(){
+    return this.paginaAtual;
+  }
+
+
 }
