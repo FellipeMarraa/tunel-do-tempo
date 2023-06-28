@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   titleDialog: string = '';
   showErrorMessage: boolean = false;
   showTip: boolean = false;
+  paginaAtual: number = 1;
 
   login() {
     if (this.frase1 === 'FRASE1' && this.frase2 === 'FRASE2'){
@@ -83,5 +84,15 @@ export class LoginComponent implements OnInit, OnDestroy{
       }
     });
 
+  }
+
+  goNextPage() {
+    this.paginaAtual++;
+    console.log(this.paginaAtual);
+  }
+
+  backwardPage() {
+    this.paginaAtual--;
+    console.log(this.paginaAtual);
   }
 }

@@ -15,6 +15,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
 import { DialogComponent } from './components/dialog/dialog.component';
+import {MatIconModule} from "@angular/material/icon";
+import { QuestionsComponent } from './pages/questions/questions.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     HomeComponent,
     LoginComponent,
     CarouselComponent,
-    DialogComponent
+    DialogComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatButtonModule,
     MatInputModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
