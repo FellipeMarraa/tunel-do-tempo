@@ -4,8 +4,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InitialComponent} from './pages/initial/initial.component';
 import {HomeComponent} from './pages/home/home.component';
-import {LoginComponent} from './pages/login/login.component';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {CarouselComponent} from './components/carousel/carousel.component';
 import {SlickCarouselModule} from "ngx-slick-carousel";
@@ -21,8 +21,8 @@ import { QuestionsComponent } from './pages/questions/questions.component';
 @NgModule({
   declarations: [
     AppComponent,
+    InitialComponent,
     HomeComponent,
-    LoginComponent,
     CarouselComponent,
     DialogComponent,
     QuestionsComponent

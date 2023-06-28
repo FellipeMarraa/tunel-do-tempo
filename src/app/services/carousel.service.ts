@@ -13,6 +13,7 @@ export class CarouselService {
   begin: any;
   showButton: any;
   showRoles: any;
+  isQuestion: any;
 
   startCarousel(images: string[]): void {
     this.interval = setInterval(() => {
@@ -46,6 +47,14 @@ export class CarouselService {
 
   getShowRoles(): boolean{
     return this.showRoles;
+  }
+
+  setQuestion(isQuestion: boolean): boolean{
+    return this.isQuestion = isQuestion;
+  }
+
+  getIsQuestion(): boolean{
+    return this.isQuestion;
   }
 
 }

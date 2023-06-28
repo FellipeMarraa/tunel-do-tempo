@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./pages/login/login.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
 import {CarouselComponent} from "./components/carousel/carousel.component";
+import {QuestionsComponent} from "./pages/questions/questions.component";
+import {InitialComponent} from "./pages/initial/initial.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'initial', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent},
+  { path: '', redirectTo: 'begin', pathMatch: 'full'},
+  { path: 'begin', component: CarouselComponent},
+  {path: 'initial', component: InitialComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'initial', component: CarouselComponent},
+  { path: 'questions', component: QuestionsComponent},
 
 ];
 

@@ -1,3 +1,69 @@
-<div class="container" *ngIf="begin">
-  <app-carousel></app-carousel>
+<app-carousel></app-carousel>
+<body style="position: relative;z-index: 5;">
+<div class="container mt-5 position-fixed w-100 h-100" *ngIf="showRoles && begin">
+  <div class="container w-75 h-75"
+       style=" text-align: center; margin-left: 10rem; background-color: whitesmoke; border: 2px solid black; border-radius:  15%">
+    <div class="container"
+         style=" text-align: justify; font-size: 20px; display: block; overflow: hidden; height: 100%">
+      <ng-container class="container" *ngIf="paginaAtual === 1">
+        <p style="padding: 15% 10% 5% 10%; position: relative; max-height: 100%;"><b>Bem vinda ao Túnel do Tempo, esse
+          website foi desenvolvido porque você disse que gostava de desafios!
+          O jogo se chama "Túnel do tempo" porque nele haverá perguntas sobre todos os anos de relacionamento
+          que compartilhamos! Será que você lembra de todas as respostas?<br>
+          Se não lembrar, não se preocupe... Você percebeu que o apartamento está todo enfeitado? Não é atoa, se
+          procurar direitinho
+          você vai encontrar as respostas! Vamos para as regras?</b></p>
+        <button mat-raised-button (click)="goNextPage()" style=" margin-right: 10%; float: right; align-content: end">
+          <mat-icon color="primary">arrow_forward</mat-icon>
+        </button>
+      </ng-container>
+
+      <ng-container class="container" *ngIf="paginaAtual === 2">
+        <div style="padding: 5% 10% 5% 10%; position: relative; max-height: 100%;">
+          <p><b>Regra número 1:</b> As respostas do jogo estão ocultas no apartamento, você precisará procurá-las.</p>
+          <p><b>Regra número 2:</b> No topo da tela haverá um ícone de lâmpada, isso indica que você poderá pedir dica
+            de onde
+            pode estar a resposta. As dicas são limitadas.
+          </p>
+          <p><b>Regra número 3:</b> O jogo só irá avançar para a próxima pergunta se você responder corretamente a
+            pergunta na
+            tela.</p>
+          <p><b>Regra número 4:</b> Algumas portas estão trancadas, considere isso como fases do jogo, à medida que você
+            avançar, encontrará as chaves para abrir e avançar para o próximo nível.</p>
+          <p><b>Regra número 5:</b> A suíte é a fase final, não pule etapas, visto que todas as chaves funcionam para
+            todas as
+            portas.</p>
+          <button mat-raised-button (click)="backwardPage()" style="float: left">
+            <mat-icon color="primary">arrow_back</mat-icon>
+          </button>
+          <button mat-raised-button style=" float: right" (click)="goNextPage()">
+            <mat-icon color="primary">arrow_forward</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-container class="container" *ngIf="paginaAtual === 3">
+        <div style="padding: 5% 10% 5% 10%; position: relative; max-height: 100%;">
+          <p><b>Regra número 6:</b> Não saia procurando freneticamente pelo apartamento, isso pode fazer você encontrar
+            itens que ainda não deveriam ser encontrados.</p>
+          <p><b>Regra número 7:</b> Siga as perguntas orientadoras de cada questão e pense antes de agir, pode
+            economizar um bom tempo.</p>
+          <p><b>Regra número 8:</b> TODAS as respostas em formato de texto, deverão ser escritas em caixa alta e sem
+            caracteres especiais (ascentos, cedilhas, etc).</p>
+          <p><b>Regra número 9:</b> TODAS as respostas em formato de datas, deverão ser respondidas pelo input de data
+            na tela.</p>
+          <p><b>Regra número 10:</b> O jogo não é salvo localmente, então não atualize a página se não perderá todo o
+            progresso.</p>
+          <p><b>Regra número 11:</b> Entregue-se ao game e divirta-se. A recompensa será gratificante para você.</p>
+          <button mat-raised-button (click)="backwardPage()" style="float: left">
+            <mat-icon color="primary">arrow_back</mat-icon>
+          </button>
+          <button mat-raised-button style=" float: right" (click)="beginQuiz()">
+            Começar
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>
+</body>

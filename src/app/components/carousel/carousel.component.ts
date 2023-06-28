@@ -25,14 +25,16 @@ export class CarouselComponent implements OnInit, OnDestroy {
   begin: boolean = this.carouselService.getBegin();
   timeInternal: any;
 
+
   ngOnInit(): void {
 
     if (!this.begin) {
       this.timeInternal = setTimeout(() => {
         this.showButton = this.carouselService.setShowButton(true);
-        console.log(this.showButton);
-      }, 0);
+      }, 10000);
     }
+
+    console.log(this.begin);
 
     this.carouselService.startCarousel(this.images);
   }
@@ -49,11 +51,8 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.begin = this.carouselService.setBegin(true);
     this.showButton = this.carouselService.setShowButton(true);
     this.showRoles = this.carouselService.setShowRoles(true);
-    this.router.navigate(['/home']);
 
-    console.log('carousel-begin', this.begin);
-    console.log('carousel-button', this.showButton);
-    console.log('carousel- role', this.showRoles);
+    this.router.navigate(['/initial']);
 
   }
 }

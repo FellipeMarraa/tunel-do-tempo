@@ -1,25 +1,11 @@
-<div class="body" *ngIf="!showButton">
+<div class="body">
 
-    <div class="carousel-container">
+    <div class="carousel-container" style="z-index: -5">
       <div *ngFor="let image of images; let i = index" [ngStyle]="getBackgroundStyle(image, i)"
            [class.active]="i === carouselService.activeIndex"></div>
     </div>
     <div class="content">
-
+      <button *ngIf="!begin && showButton" mat-raised-button color="primary" style="margin-left: 45%; margin-top: 20%" (click)="start()">Acessar Túnel do Tempo</button>
     </div>
-
-</div>
-
-
-<div class="body" *ngIf="showButton">
-
-  <div class="carousel-container-noButton">
-    <div *ngFor="let image of images; let i = index" [ngStyle]="getBackgroundStyle(image, i)"
-         [class.active]="i === carouselService.activeIndex"></div>
-  </div>
-  <div class="content">
-    <button *ngIf="!begin" mat-raised-button color="primary" style="margin-left: 45%; margin-top: 20%" (click)="start()">Acessar Túnel do Tempo</button>
-    <app-login></app-login>
-  </div>
 
 </div>

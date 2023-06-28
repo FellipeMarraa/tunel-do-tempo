@@ -1,1 +1,21 @@
-<p>questions works!</p>
+<app-carousel></app-carousel>
+<div style="position: relative;z-index: 5;">
+  <div class="container mt-5 position-fixed" style="margin-left: 6rem">
+    <button mat-raised-button color="primary" style="float: right" (click)="randomTips()">Dica</button>
+    <div style="margin-left: 43%; margin-top: 5%;">
+      <form style="margin-top: 6rem">
+        <mat-form-field>
+          <input matInput placeholder="Texto 1" [(ngModel)]="frase1" name="frase1">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Texto 2" [(ngModel)]="frase2" name="frase2">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" style="margin-left: 1rem" (click)="backToRoles()">Regras</button>
+        <button mat-raised-button color="primary" style="margin-left: 1rem" (click)="login()">Seguir</button>
+        <div *ngIf="showErrorMessage" class="error-message">Frases incorretas.</div>
+      </form>
+    </div>
+  </div>
+</div>
