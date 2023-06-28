@@ -31,7 +31,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
     if (!this.begin) {
       this.timeInternal = setTimeout(() => {
         this.showButton = this.carouselService.setShowButton(true);
-      }, 10000);
+      }, 0);
     }
 
     console.log(this.begin);

@@ -44,13 +44,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     'Talvez dentro de uma sacola? Ou uma caixa?'
   ]
   tip: string = '';
-  titleDialogTips: string = '';
+  titleDialogTips: string = 'Dica';
   showErrorMessage: boolean = false;
   showTip: boolean = false;
+  indexQuestion: number = 1;
+
+
 
   login() {
     if (this.frase1 === 'FRASE1' && this.frase2 === 'FRASE2'){
-      this.router.navigate(['/home']);
+      this.indexQuestion++;
     }else{
       this.showErrorMessage = true;
     }
@@ -71,7 +74,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   }
 
-  titleDialogRoles: string = '';
+  titleDialogRoles: string = 'Regras';
   contentDialogRoles: string[] = [
     'Regra número 1: As respostas do jogo estão ocultas no apartamento, você precisará procurá-las.',
     'Regra número 2: No topo da tela haverá um ícone de lâmpada, isso indica que você poderá pedir dica de onde pode estar a resposta. As dicas são limitadas. ',
