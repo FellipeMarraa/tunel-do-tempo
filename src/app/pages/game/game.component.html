@@ -1,14 +1,33 @@
-<ng-container class="font-amatic custom-dialog-content mt-96">
-
-  <button class="flex w-fit float-right" mat-button (click)="openTips()">
-    <mat-icon style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
-  </button>
-
-  <div class="flex flex-col ml-96 h-96 max-h-96 w-6/12 gap-2 bg-black border-2 rounded-3xl">
-    <span class="text-neutral-50 text-2xl ml-10 mt-10 font-satisfy"> Pergunta número 1 </span>
-
-
-    <button class="flex text-neutral-50 text-2xl font-amatic w-fit float-right" (click)="openRoles()">Regras</button>
+<!--  <div class="flex flex-col ml-80 h-96 w-6/12 mt-20 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">-->
+<!--    <div class="w-full max-w-xs">-->
+<form class="flex flex-col ml-80 h-96 w-6/12 mt-20 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <span class="flex absolute w-fit" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </span>
+  <span class="text-black text-2xl ml-10 mt-10 font-satisfy"> Pergunta número 1 </span>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-lg font-bold mb-2 font-amatic" for="frase1">
+      Frase 1
+    </label>
+    <input
+      class="font-amatic shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="frase1" type="text" placeholder="Frase 1">
   </div>
+  <div class="mb-6">
+    <label class="block text-gray-700 text-lg font-bold mb-2 font-amatic" for="frase2">
+      Frase 2
+    </label>
+    <input
+      class="font-amatic shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+      id="frase2" type="text" placeholder="Frase 2">
+    <span *ngIf="incorretAnswer" class="text-red-500 text-xs italic font-amatic">Frases incorretas.</span>
+  </div>
+  <div class="flex items-center justify-between">
+    <button class="text-black text-2xl font-amatic w-fit ml-10" (click)="openRoles()">Regras</button>
+    <button class="text-black text-2xl font-amatic w-fit mr-10">Responder</button>
+  </div>
+</form>
+<!--    </div>-->
 
-</ng-container>>
+<!--  </div>-->
+

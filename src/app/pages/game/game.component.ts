@@ -9,6 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit{
+  incorretAnswer: any = false;
 
   constructor(private renderer: Renderer2,
               private dialogService: DialogService,
@@ -19,7 +20,7 @@ export class GameComponent implements OnInit{
     this.dialogService.setInicialPage(false);
     this.dialogService.setPaginaAtual(2);
     this.renderer.setStyle(document.body, 'background-image', 'url(./assets/background-initial.png)');
-    this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
+    // this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
     this.renderer.setStyle(document.body, 'background-size', 'cover');
   }
 
