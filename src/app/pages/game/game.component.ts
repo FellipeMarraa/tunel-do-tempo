@@ -18,7 +18,7 @@ export class GameComponent implements OnInit{
   ngOnInit() {
     this.dialogService.setInicialPage(false);
     this.dialogService.setPaginaAtual(2);
-    this.renderer.setStyle(document.body, 'background-image', 'url(./assets/image2.png)');
+    this.renderer.setStyle(document.body, 'background-image', 'url(./assets/background-initial.png)');
     this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
     this.renderer.setStyle(document.body, 'background-size', 'cover');
   }
