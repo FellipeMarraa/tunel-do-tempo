@@ -18,6 +18,8 @@ import { VideoComponent } from './pages/video/video.component';
 import { GameComponent } from './pages/game/game.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RoleDialogComponent } from './components/role-dialog/role-dialog.component';
+import { TipDialogComponent } from './components/tip-dialog/tip-dialog.component';
+import {LocalStorageService} from "./services/local-storage.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { RoleDialogComponent } from './components/role-dialog/role-dialog.compon
     GameComponent,
     HistoryComponent,
     RoleDialogComponent,
+    TipDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { RoleDialogComponent } from './components/role-dialog/role-dialog.compon
     MatDialogModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
