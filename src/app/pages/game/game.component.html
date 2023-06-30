@@ -1,3 +1,4 @@
+<app-navbar class="absolute w-full"></app-navbar>
 <div class="flex w-full h-screen items-center justify-center">
   <form *ngIf="questionNumber === 0" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow rounded px-8 pt-6 pb-8">
     <div class="flex items-center justify-between">
@@ -6,7 +7,7 @@
         <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
       </button>
     </div>
-    <div class="mt-4 mb-4 relative left-1/4">
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
       <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao1">
         Frase 1
       </label>
@@ -14,24 +15,50 @@
         class="font-amatic shadow-md appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         id="input1questao1" type="text" name="input1questao1" [value]="input1questao1" [(ngModel)]="input1questao1">
     </div>
-    <div class="mb-6 relative left-1/4">
-      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input2questao1">
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic float-left" for="input2questao1">
         Frase 2
       </label>
       <input
         class="font-amatic shadow-md appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
         id="input2questao1" type="text" name="input2questao1" [value]="input2questao1" [(ngModel)]="input2questao1">
-      <span *ngIf="incorretAnswer" class="text-red-500 flex absolute text-xl italic font-amatic">Frases incorretas.</span>
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Frases incorretas.</span>
     </div>
-    <div class="flex items-center justify-between">
-      <button class="text-black text-2xl font-amatic w-fit relative left-1/3" (click)="openRoles()">Regras</button>
-      <button class="text-black text-2xl font-amatic w-fit relative right-1/3" (click)="nextQuestion()">Responder</button>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative pr-8" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative pl-8" (click)="nextQuestion()">Responder</button>
     </div>
   </form>
+  <!--  Question 2-->
   <form *ngIf="questionNumber === 1" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
 
     <div class="flex items-center justify-between">
       <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 2 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao2" type="text" name="input1questao2" [(ngModel)]="input1questao2">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 3-->
+  <form *ngIf="questionNumber === 2" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 3 </span>
       <button class="left-2/3" (click)="openTips()">
         <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
       </button>
@@ -44,18 +71,404 @@
     <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
     <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
     <!--  </div>-->
-    <div class="mb-6 relative left-1/4">
-      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao3">
         Resposta
       </label>
       <input
         class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        id="input1questao2" type="text" placeholder="Frase 2" name="input1questao2" [(ngModel)]="input1questao2">
-      <span *ngIf="incorretAnswer" class="text-red-500 flex absolute text-xl italic font-amatic">Resposta incorreta.</span>
+        id="input1questao3" type="text" name="input1questao3" [(ngModel)]="input1questao3">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
     </div>
-    <div class="flex items-center justify-between">
-      <button class="text-black text-2xl font-amatic w-fit relative left-1/3" (click)="openRoles()">Regras</button>
-      <button class="text-black text-2xl font-amatic w-fit relative right-1/3" (click)="nextQuestion()">Responder</button>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
     </div>
   </form>
+  <!--  Question 4-->
+  <form *ngIf="questionNumber === 3" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 4 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao4">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao4" type="text" name="input1questao4" [(ngModel)]="input1questao4">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 5-->
+  <form *ngIf="questionNumber === 4" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 5 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao5">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao5" type="text" name="input1questao5" [(ngModel)]="input1questao5">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 6-->
+  <form *ngIf="questionNumber === 5" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 6 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao6">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao6" type="text" name="input1questao6" [(ngModel)]="input1questao6">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 7-->
+  <form *ngIf="questionNumber === 6" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 7 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao7">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao7" type="text" name="input1questao7" [(ngModel)]="input1questao7">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 8-->
+  <form *ngIf="questionNumber === 7" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 8 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao8">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao8" type="text" name="input1questao8" [(ngModel)]="input1questao8">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 9-->
+  <form *ngIf="questionNumber === 8" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 9 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao9">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao9" type="text" name="input1questao9" [(ngModel)]="input1questao9">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 10-->
+  <form *ngIf="questionNumber === 9" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 10 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao10">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao10" type="text" name="input1questao10" [(ngModel)]="input1questao10">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 11-->
+  <form *ngIf="questionNumber === 10" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 11 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao11">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao11" type="text" name="input1questao11" [(ngModel)]="input1questao11">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 12-->
+  <form *ngIf="questionNumber === 11" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 12 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao12">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao12" type="text" name="input1questao12" [(ngModel)]="input1questao12">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 13-->
+  <form *ngIf="questionNumber === 12" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 13 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao13">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao13" type="text" name="input1questao13" [(ngModel)]="input1questao13">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 14-->
+  <form *ngIf="questionNumber === 13" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 14 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao14">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao14" type="text" name="input1questao14" [(ngModel)]="input1questao14">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+  <!--  Question 15-->
+  <form *ngIf="questionNumber === 14" class="flex flex-col h-96 w-6/12 gap-2 bg-white shadow-md rounded px-8 pt-6 pb-8">
+
+    <div class="flex items-center justify-between">
+      <span class="flex relative text-black text-2xl font-satisfy"> Pergunta número 15 </span>
+      <button class="left-2/3" (click)="openTips()">
+        <mat-icon class="w-fit" style="color: yellow; transform: rotate(180deg)">wb_incandescent</mat-icon>
+      </button>
+    </div>
+    <!--  <div class="mt-4 mb-4 relative left-1/4">-->
+    <!--    <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao2">-->
+    <!--      Resposta-->
+    <!--    </label>-->
+    <!--    <input-->
+    <!--      class="font-amatic shadow appearance-none border rounded w-2/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
+    <!--      id="input1questao2" type="text" placeholder="Resposta" [(ngModel)]="input1questao2">-->
+    <!--  </div>-->
+    <div class="flex flex-col w-full h-screen items-center justify-center mb-6">
+      <label class="block text-gray-700 text-xl font-bold mb-2 font-amatic" for="input1questao15">
+        Resposta
+      </label>
+      <input
+        class="font-amatic shadow appearance-none border border-red-500 rounded w-2/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        id="input1questao15" type="text" name="input1questao15" [(ngModel)]="input1questao15">
+      <span *ngIf="incorretAnswer" class="text-red-500 flex text-xl italic font-amatic relative max-h-1">Resposta incorreta.</span>
+    </div>
+    <div class="flex items-center justify-center">
+      <!--      <button class="text-black text-2xl font-amatic w-fit relative pl-2" (click)="goToMenu()">Menu</button>-->
+      <button class="text-black text-2xl font-amatic w-fit relative" (click)="openRoles()">Regras</button>
+      <button class="text-black text-2xl font-amatic w-fit relative pr-2" (click)="nextQuestion()">Responder</button>
+    </div>
+  </form>
+
 </div>

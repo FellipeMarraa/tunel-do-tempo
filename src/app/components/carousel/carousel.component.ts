@@ -15,9 +15,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   images: string[] = [
-    'assets/image2.png',
-    'assets/background-home.png',
-    'assets/image3.png'
+    'assets/images/image2.png',
+    'assets/images/background-home.png',
+    'assets/images/image3.png'
   ];
 
   showRoles: boolean = this.carouselService.getShowRoles();

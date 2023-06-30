@@ -1,1 +1,13 @@
-<p>photo works!</p>
+<app-navbar class="w-full"></app-navbar>
+
+<div class="portfolio grid">
+  <div *ngFor="let image of images" class="image w-full h-full">
+    <img class="w-100 h-100 object-cover" [src]="image.url" (click)="openImage(image)">
+  </div>
+</div>
+
+<div class="image-modal flex items-center justify-center fixed top-0 left-0 w-full h-full" *ngIf="selectedImage">
+  <div class="flex modal-content relative" (click)="closeImage()">
+    <img class="flex w-full h-full" (click)="closeImage()" [src]="selectedImage.url">
+  </div>
+</div>

@@ -20,6 +20,7 @@ import { HistoryComponent } from './pages/history/history.component';
 import { RoleDialogComponent } from './components/role-dialog/role-dialog.component';
 import { TipDialogComponent } from './components/tip-dialog/tip-dialog.component';
 import {LocalStorageService} from "./services/local-storage.service";
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {LocalStorageService} from "./services/local-storage.service";
     HistoryComponent,
     RoleDialogComponent,
     TipDialogComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,17 @@
-<p>video works!</p>
+<app-navbar class="w-full"></app-navbar>
+
+<div class="portfolio grid">
+  <div *ngFor="let video of videos" class="video w-full h-full">
+    <video class="w-100 h-100 object-cover" controls (click)="openVideo(video)">
+      <source [src]="video.url" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<div class="video-modal flex items-center justify-center fixed top-0 left-0 w-full h-full" *ngIf="selectedVideo" (click)="closeVideo()">
+  <div class="flex modal-content relative">
+    <video #videoPlayer controls>
+      <source [src]="selectedVideo.url" type="video/mp4">
+    </video>
+  </div>
+</div>

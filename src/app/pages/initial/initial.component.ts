@@ -19,8 +19,10 @@ export class InitialComponent implements OnInit{
 
 
     ngOnInit() {
-      this.renderer.setStyle(document.body, 'background-image', 'url(./assets/background-initial.png)');
-      // this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
+      this.dialogService.setInicialPage(true);
+      this.dialogService.setPaginaAtual(1);
+      this.renderer.setStyle(document.body, 'background-image', 'url(./assets/images/background-initial.png)');
+      this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
       this.renderer.setStyle(document.body, 'background-size', 'cover');
   }
 

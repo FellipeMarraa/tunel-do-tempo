@@ -16,7 +16,7 @@ export class LocalStorageService {
       this.respostas = JSON.parse(respostasSalvas);
     }
     if (paramsSaved) {
-      this.respostas = JSON.parse(paramsSaved);
+      this.params = JSON.parse(paramsSaved);
     }
   }
 
@@ -29,7 +29,7 @@ export class LocalStorageService {
     return this.respostas;
   }
 
-  salvarParams(questionNumber: number, tipIndex: string, tips: string[]) {
+  salvarParams(questionNumber: number, tipIndex: number, tips: string[]) {
     this.params = [questionNumber, tipIndex, tips];
     localStorage.setItem('params', JSON.stringify(this.params));
   }
