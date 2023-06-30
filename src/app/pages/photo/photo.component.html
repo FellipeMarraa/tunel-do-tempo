@@ -7,7 +7,7 @@
 </div>
 
 <div class="image-modal flex items-center justify-center fixed top-0 left-0 w-full h-full" *ngIf="selectedImage">
-  <div class="flex modal-content relative" (click)="closeImage()">
+  <div class="flex modal-content relative items-center" (click)="closeImage()">
     <img class="flex w-full h-full" (click)="closeImage()" [src]="selectedImage.url">
   </div>
 </div>

@@ -1,5 +1,6 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
 import {DialogService} from "../../services/dialog.service";
+import {images} from "../../../assets/images";
 
 @Component({
   selector: 'app-photo',
@@ -20,29 +21,7 @@ export class PhotoComponent implements OnInit{
     this.dialogService.setPaginaAtual(2);
   }
 
-  images = [
-    { url: 'assets/images/image2.png' },
-    { url: 'assets/images/image3.png' },
-    { url: 'assets/images/background-home.png' },
-    { url: 'assets/images/background-initial.png' },
-    { url: 'assets/images/image2.png' },
-    { url: 'assets/images/image3.png' },
-    { url: 'assets/images/background-home.png' },
-    { url: 'assets/images/background-initial.png' },
-    { url: 'assets/images/image2.png' },
-    { url: 'assets/images/image3.png' },
-    { url: 'assets/images/background-home.png' },
-    { url: 'assets/images/background-initial.png' },
-    { url: 'assets/images/image2.png' },
-    { url: 'assets/images/image3.png' },
-    { url: 'assets/images/background-home.png' },
-    { url: 'assets/images/background-initial.png' },
-    { url: 'assets/images/image2.png' },
-    { url: 'assets/images/image3.png' },
-    { url: 'assets/images/background-home.png' },
-    { url: 'assets/images/background-initial.png' },
-    // ... adicione mais imagens conforme necessário
-  ];
+  images = images;
 
   selectedImage: any;
 
