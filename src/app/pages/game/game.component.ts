@@ -63,8 +63,8 @@ export class GameComponent implements OnInit {
   }
 
   incorretAnswer: any = false;
-  questionNumber: number = 0;
-  tipIndex: number = 0;
+  questionNumber: number = 1;
+  tipIndex: number = 1;
   tip: any;
   tips: any = allTips[0];
   titleTips: string = 'Dica';
@@ -76,44 +76,48 @@ export class GameComponent implements OnInit {
   // Question 2
   input1questao2: string = '';
 
-  // Question 2
+  // Question 3
   input1questao3: string = '';
 
-  // Question 2
+  // Question 4
   input1questao4: string = '';
 
-  // Question 2
+  // Question 5
   input1questao5: string = '';
 
-  // Question 2
+  // Question 6
   input1questao6: string = '';
+  input2questao6: string = '';
 
-  // Question 2
+  // Question 7
   input1questao7: string = '';
+  input2questao7: string = '';
 
-  // Question 2
+  // Question 8
   input1questao8: string = '';
 
-  // Question 2
+  // Question 9
   input1questao9: string = '';
 
-  // Question 2
+  // Question 10
   input1questao10: string = '';
 
-  // Question 2
+  // Question 11
   input1questao11: string = '';
 
-  // Question 2
+  // Question 12
   input1questao12: string = '';
 
-  // Question 2
+  // Question 13
   input1questao13: string = '';
 
-  // Question 2
+  // Question 14
   input1questao14: string = '';
 
-  // Question 2
+  // Question 15
   input1questao15: string = '';
+  input2questao15: string = '';
+
 
   openTips() {
 
@@ -145,8 +149,8 @@ export class GameComponent implements OnInit {
   nextQuestion() {
 
     switch (this.questionNumber) {
-      case 0:
-        if (this.input1questao1.toUpperCase() == "FRASE1" && this.input2questao1.toUpperCase() == "FRASE2") {
+      case 1:
+        if ((this.input1questao1.toUpperCase().includes('IMPLICANTE') || this.input1questao1.toUpperCase().includes('BOCHECHUDO')) && this.input2questao1.toUpperCase().includes('NEOQEAV')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao1, this.input2questao1]);
           this.salvarParams(this.questionNumber, this.tipIndex);
@@ -159,8 +163,8 @@ export class GameComponent implements OnInit {
         }
 
         break;
-      case 1:
-        if (this.input1questao2.toUpperCase() == "FRASE1") {
+      case 2:
+        if (this.input1questao2.toUpperCase().includes('27/07/2014')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao2, '']);
           this.salvarParams(this.questionNumber, this.tipIndex);
@@ -172,10 +176,11 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 2:
-        if (this.input1questao3.toUpperCase() == "FRASE1") {
+      case 3:
+        if (this.input1questao3.toUpperCase().includes('29/08/2014')) {
           this.questionNumber++;
-          this.salvarResposta(this.questionNumber, [this.input1questao3, ''])
+          this.salvarResposta(this.questionNumber, [this.input1questao3, '']);
+          this.salvarParams(this.questionNumber, this.tipIndex);
           this.resetTips();
         } else {
           this.incorretAnswer = true;
@@ -184,8 +189,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 3:
-        if (this.input1questao4.toUpperCase() == "FRASE1") {
+      case 4:
+        if (this.input1questao4.toUpperCase().includes('13/10/2014')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao4, ''])
           this.resetTips();
@@ -196,8 +201,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 4:
-        if (this.input1questao5.toUpperCase() == "FRASE1") {
+      case 5:
+        if (this.input1questao5.toUpperCase().includes('PAIS')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao5, ''])
           this.resetTips();
@@ -208,22 +213,10 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 5:
-        if (this.input1questao6.toUpperCase() == "FRASE1") {
-          this.questionNumber++;
-          this.salvarResposta(this.questionNumber, [this.input1questao6, ''])
-          this.resetTips();
-        } else {
-          this.incorretAnswer = true;
-          setTimeout(() => {
-            this.incorretAnswer = false;
-          }, 3000);
-        }
-        break;
       case 6:
-        if (this.input1questao7.toUpperCase() == "FRASE1") {
+        if (this.input1questao6.toUpperCase().includes('ALIANCA') && this.input2questao6.toUpperCase().includes('05/02/2015')) {
           this.questionNumber++;
-          this.salvarResposta(this.questionNumber, [this.input1questao7, ''])
+          this.salvarResposta(this.questionNumber, [this.input1questao6, this.input2questao6]);
           this.resetTips();
         } else {
           this.incorretAnswer = true;
@@ -233,7 +226,19 @@ export class GameComponent implements OnInit {
         }
         break;
       case 7:
-        if (this.input1questao8.toUpperCase() == "FRASE1") {
+        if (this.input1questao7.toUpperCase().includes('12/07/2015') && this.input2questao7.toUpperCase().includes('7 MESES')) {
+          this.questionNumber++;
+          this.salvarResposta(this.questionNumber, [this.input1questao7, this.input2questao7]);
+          this.resetTips();
+        } else {
+          this.incorretAnswer = true;
+          setTimeout(() => {
+            this.incorretAnswer = false;
+          }, 3000);
+        }
+        break;
+      case 8:
+        if (this.input1questao8.toUpperCase().includes('AMORZINHO, NENEM, BEBE, PAIXAUM, FE, VIDA')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao8, ''])
           this.resetTips();
@@ -244,8 +249,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 8:
-        if (this.input1questao9.toUpperCase() == "FRASE1") {
+      case 9:
+        if (this.input1questao9.toUpperCase().includes('CIA')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao9, ''])
           this.resetTips();
@@ -256,8 +261,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 9:
-        if (this.input1questao10.toUpperCase() == "FRASE1") {
+      case 10:
+        if (this.input1questao10.toUpperCase().includes('SOZINHA')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao10, ''])
           this.resetTips();
@@ -268,8 +273,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 10:
-        if (this.input1questao11.toUpperCase() == "FRASE1") {
+      case 11:
+        if (this.input1questao11.toUpperCase().includes('CASAR')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao11, ''])
           this.resetTips();
@@ -280,8 +285,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 11:
-        if (this.input1questao12.toUpperCase() == "FRASE1") {
+      case 12:
+        if (this.input1questao12.toUpperCase().includes('VOCE CUIDA DE MIM, VOCE RI DAS MINHAS PIADAS SEM GRACA, VOCE ME ESCUTA CANTAR SEMPRE, VOCE SE PREOCUPA COMIGO')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao12, ''])
           this.resetTips();
@@ -292,8 +297,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 12:
-        if (this.input1questao13.toUpperCase() == "FRASE1") {
+      case 13:
+        if (this.input1questao13.toUpperCase().includes('VALE UM ALMOCO/JANTAR FEITO POR MIM, VALE EU REALIZAR UM DESEJO SEU, VALE UMA TARDE ESPECIAL, VALE UM SUPER ABRACO')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao13, ''])
           this.resetTips();
@@ -304,8 +309,8 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 13:
-        if (this.input1questao14.toUpperCase() == "FRASE1") {
+      case 14:
+        if (this.input1questao14.toUpperCase().includes('2192, 313, 52608, 72, 6')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao14, ''])
           this.resetTips();
@@ -316,10 +321,9 @@ export class GameComponent implements OnInit {
           }, 3000);
         }
         break;
-      case 14:
-        if (this.input1questao15.toUpperCase() == "FRASE1") {
-          this.questionNumber++;
-          this.salvarResposta(this.questionNumber, [this.input1questao15, ''])
+      case 15:
+        if (this.input1questao15.toUpperCase().includes('NOIVADO') && this.input2questao15.toUpperCase().includes('ALIANCA')) {
+          this.salvarResposta(this.questionNumber, [this.input1questao15, this.input2questao15]);
           this.resetTips();
         } else {
           this.incorretAnswer = true;

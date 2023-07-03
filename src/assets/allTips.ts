@@ -1,78 +1,100 @@
 export const allTips: any = [
+  // 0
   [
-    'Primeira dica 1',
-    'Dica 2',
-    'Dica 3'
+    'Uma das frases é um dos primeiros apelidos que tivemos',
+    'Uma das frases é o primeiro "te amo" disfarçado',
+    'Já procurou em alguma carta?'
 
   ],
+  // 1
   [
-    'Primeira dica 4',
-    'Dica 5',
-    'Dica 6'
+    'Uma das frases é um dos primeiros apelidos que tivemos',
+    'Uma das frases é o primeiro "te amo" disfarçado',
+    'Já procurou em alguma carta?'
+
   ],
+  // 2
   [
-    'Primeira dica 7',
-    'Dica 8',
-    'Dica 9'
+    'Foi no mesmo ano em que começamos a namorar',
+    'Foi no mês 07',
+    'Foi em dia ímpar'
   ],
+  // 3
   [
-    'Primeira dica 10',
-    'Dica 11',
-    'Dica 12'
+    'Foi no mesmo ano em que começamos nossa história',
+    'Foi em um mês par',
+    'A resposta está em uma carta'
   ],
+  // 4
   [
-    'Primeira dica 13',
-    'Dica 14',
-    'Dica 15'
+    'Foi no mês do seu aniversário',
+    'A resposta está em uma carta',
+    'É um dia ímpar'
   ],
+  // 5
   [
-    'Primeira dica 16',
-    'Dica 17',
-    'Dica 18'
+    'Você estava nervosa',
+    'Eu estava um pouco tenso',
+    'Usamos nossa primeira aliança'
   ],
+  // 6
   [
-    'Primeira dica 19',
-    'Dica 20',
-    'Dica 21'
+    'Aconteceu em um lugar importante pra você',
+    'Foi um dos dias mais felizes da sua vida',
+    'O dia é um número ímpar'
   ],
+  // 7
   [
-    'Primeira dica 21',
-    'Dica 22',
-    'Dica 23'
+    'Foi em 2015',
+    'O tempo passou rápido',
+    'Mês ímpar'
   ],
+  // 8
   [
-    'Primeira dica 24',
-    'Dica 25',
-    'Dica 26'
+    'Não há dicas para esta questão',
+    'Não há dicas para esta questão',
+    'Não há dicas para esta questão'
   ],
+  // 9
   [
-    'Primeira dica 27',
-    'Dica 28',
-    'Dica 29'
+    'Era algo que você queria muito',
+    'Não concordei inicialmente',
+    'Frio'
   ],
+  // 10
   [
-    'Primeira dica 30',
-    'Dica 31',
-    'Dica 32'
+    'Está em um presente que ganhei',
+    'Presente foi muito criativo',
+    'Truco'
   ],
+  // 11
   [
-    'Primeira dica 33',
-    'Dica 34',
-    'Dica 35'
+    'Está em um presente que ganhei',
+    'A embalagem é de vidro',
+    'Seria nosso próximo passo'
   ],
+  // 12
   [
-    'Primeira dica 36',
-    'Dica 37',
-    'Dica 38'
+    'Está em uma carta de 2020',
+    'Ganhei essa carta no dia dos namorados',
+    'Ordem: canto superior esquerdo e segue em sentido horário'
   ],
+  // 13
   [
-    'Primeira dica 39',
-    'Dica 40',
-    'Dica 41'
+    'Está em um presente que ganhei',
+    'Está dentro de um envelope feito por você',
+    'Ordem: laranja, verde, azul e rosa'
   ],
+  // 14
   [
-    'Primeira dica 42',
-    'Dica 43',
-    'Dica 44'
+    'Está em uma carta que ganhei de presente',
+    'Está dentro de um envelope transparente',
+    'Folha de caderno'
+  ],
+  // 15
+  [
+    'A resposta está na suíte',
+    'A chave da suíte está em um lugar frio',
+    'Olhou dentro da geladeira?'
   ],
 ]

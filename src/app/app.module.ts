@@ -13,14 +13,16 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
-import { PhotoComponent } from './pages/photo/photo.component';
-import { VideoComponent } from './pages/video/video.component';
-import { GameComponent } from './pages/game/game.component';
-import { HistoryComponent } from './pages/history/history.component';
-import { RoleDialogComponent } from './components/role-dialog/role-dialog.component';
-import { TipDialogComponent } from './components/tip-dialog/tip-dialog.component';
+import {PhotoComponent} from './pages/photo/photo.component';
+import {VideoComponent} from './pages/video/video.component';
+import {GameComponent} from './pages/game/game.component';
+import {HistoryComponent} from './pages/history/history.component';
+import {RoleDialogComponent} from './components/role-dialog/role-dialog.component';
+import {TipDialogComponent} from './components/tip-dialog/tip-dialog.component';
 import {LocalStorageService} from "./services/local-storage.service";
-import { NavbarComponent } from './components/navbar/navbar.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -47,9 +49,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatInputModule,
     FormsModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

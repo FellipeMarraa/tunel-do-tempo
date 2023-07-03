@@ -2,8 +2,9 @@
 <mat-dialog-content class="font-amatic custom-dialog-content">
   <div *ngIf="isInitialPage">
     <p class="font-amatic text-3xl font-bold" *ngIf="paginaAtual === 1 && isInitialPage">Bem vinda ao Túnel do Tempo, esse
-      website foi desenvolvido porque você disse que gostava de desafios!<br>
-      O jogo se chama "Túnel do tempo" porque nele haverá perguntas sobre algumas datas marcantes nesse período de 9 anos que estamos juntos. <br>
+      website foi desenvolvido porque você disse que gostava de desafios! <br>
+      O jogo se chama "Túnel do tempo" porque achei que seria uma boa maneira de comemorarmos nosso 9º ano juntos, relembrando de algumas coisas
+      marcantes durante todo esse período utilizando um jogo de perguntas.<br>
       Será que você lembra de tudo que aconteceu até aqui?<br>
       Se não lembrar, não tem problema, o intuito do jogo é justamente esse... No apartamento estão espalhadas todas as respostas<br>
       Para jogar de forma correta, existem algumas regras...
@@ -15,8 +16,8 @@
       ocultas no apartamento, você precisará procurá-las.</p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 2:</b> No topo da tela haverá um ícone de lâmpada,
       isso indica que você poderá pedir dica
-      de onde
-      pode estar a resposta. Cuidado! As dicas são limitadas por perguntas.
+      sobre a resposta. Serão 3 dicas por pergunta e as dicas só serão exibidas uma única vez. Algumas perguntas não terão
+      cabeçalho, sendo necessário utilizar as dicas para entender a questão.
     </p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 3:</b> O jogo só irá avançar para a próxima
       pergunta se você responder corretamente a
@@ -37,17 +38,18 @@
       apartamento, isso pode fazer você encontrar
       itens que ainda não deveriam ser encontrados.</p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 7:</b> Siga as perguntas orientadoras de cada
-      questão e pense antes de agir, pode
+      questão, use todas as dicas se necessário e pense antes de agir, pode
       economizar um bom tempo.</p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 8:</b> TODAS as respostas em formato de texto,
-      deverão ser escritas em caixa alta e sem
-      caracteres especiais (ascentos, cedilhas, etc).</p>
+      deverão ser escritas sem
+      caracteres especiais (ascentos, cedilhas, etc). Para as respostas de números, deverão ser escritas sem pontuações
+      e separados por vírgula e espaço quando envolver mais de um numero. Exemplo: 123, 456, 7, 89, 0</p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 9:</b> TODAS as respostas em formato de datas,
-      deverão ser respondidas pelo input de data
+      deverão ser respondidas no formato DD/MM/YYYY.
       na tela.</p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 10:</b> O jogo não é salvo localmente, então não
       atualize a página se não perderá todo o
-      progresso.</p>
+      progresso. Em cada pergunta terá um botão onde você poderá rever as regras.</p>
     <p class="font-amatic text-3xl"><b class="font-bold">Regra número 11:</b> A sua recompensa te espera na fase final.
     Qualquer dúvida estarei te acompanhando de perto, é só perguntar!</p>
 
