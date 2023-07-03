@@ -29,8 +29,8 @@ export class LocalStorageService {
     return this.respostas;
   }
 
-  salvarParams(questionNumber: number, tipIndex: number, tips: string[]) {
-    this.params = [questionNumber, tipIndex, tips];
+  salvarParams(questionNumber: number, tipIndex: number) {
+    this.params = [questionNumber, tipIndex];
     localStorage.setItem('params', JSON.stringify(this.params));
   }
 

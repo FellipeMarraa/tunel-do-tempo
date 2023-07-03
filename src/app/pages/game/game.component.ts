@@ -28,15 +28,14 @@ export class GameComponent implements OnInit {
     if (this.isJsonEmpty(this.localStorage.obterRespostas())) {
       this.salvarResposta(0, ['', '']);
     }
+
     this.params = this.localStorage.obterParams();
+
     this.respostas = this.localStorage.obterRespostas();
 
-    this.tips = this.params[2];
-
-    console.log('localStorageParams', this.localStorage.obterParams());
-    console.log('LocalStoragerespostas', this.localStorage.obterRespostas());
     this.dialogService.setInicialPage(false);
     this.dialogService.setPaginaAtual(2);
+
     this.renderer.setStyle(document.body, 'background-image', 'url(./assets/images/background-initial.png)');
     this.renderer.setStyle(document.body, 'background-repeat', 'no-repeat');
     this.renderer.setStyle(document.body, 'background-size', 'cover');
@@ -59,8 +58,8 @@ export class GameComponent implements OnInit {
     this.localStorage.salvarResposta(perguntaId, resposta);
   }
 
-  salvarParams(questionNumber: number, tipIndex: number, tips: string[]) {
-    this.localStorage.salvarParams(questionNumber, tipIndex, tips);
+  salvarParams(questionNumber: number, tipIndex: number) {
+    this.localStorage.salvarParams(questionNumber, tipIndex);
   }
 
   incorretAnswer: any = false;
@@ -116,16 +115,13 @@ export class GameComponent implements OnInit {
   // Question 2
   input1questao15: string = '';
 
-  goToMenu() {
-    this.router.navigate(['/']);
-  }
-
   openTips() {
 
     let content = 'Suas dicas acabaram';
 
     if (this.tips.length > 0) {
       content = this.tips[this.tipIndex];
+      this.salvarParams(this.questionNumber, this.tipIndex);
     }
 
     const dialogRefTips = this.dialog.open(TipDialogComponent, {
@@ -143,7 +139,7 @@ export class GameComponent implements OnInit {
       }
     });
 
-    this.salvarParams(this.questionNumber, this.tipIndex, this.tips);
+    this.salvarParams(this.questionNumber, this.tipIndex);
   }
 
   nextQuestion() {
@@ -152,7 +148,8 @@ export class GameComponent implements OnInit {
       case 0:
         if (this.input1questao1.toUpperCase() == "FRASE1" && this.input2questao1.toUpperCase() == "FRASE2") {
           this.questionNumber++;
-          this.salvarResposta(this.questionNumber, [this.input1questao1, this.input2questao1])
+          this.salvarResposta(this.questionNumber, [this.input1questao1, this.input2questao1]);
+          this.salvarParams(this.questionNumber, this.tipIndex);
           this.resetTips();
         } else {
           this.incorretAnswer = true;
@@ -165,7 +162,8 @@ export class GameComponent implements OnInit {
       case 1:
         if (this.input1questao2.toUpperCase() == "FRASE1") {
           this.questionNumber++;
-          this.salvarResposta(this.questionNumber, [this.input1questao2, ''])
+          this.salvarResposta(this.questionNumber, [this.input1questao2, '']);
+          this.salvarParams(this.questionNumber, this.tipIndex);
           this.resetTips();
         } else {
           this.incorretAnswer = true;
