@@ -9,7 +9,7 @@
 </div>
 
 <div class="video-modal flex items-center justify-center fixed top-0 left-0 w-full h-full" *ngIf="selectedVideo" (click)="closeVideo()">
-  <div class="flex modal-content relative">
+  <div class="flex modal-content relative items-center">
     <video #videoPlayer controls>
       <source [src]="selectedVideo.url" type="video/mp4">
     </video>

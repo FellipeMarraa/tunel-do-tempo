@@ -5,7 +5,7 @@
 
 .video {
   position: relative;
-  width: 100%;
+  //width: 100%;
   height: 0;
   padding-bottom: 56.25%; /* Proporção de aspecto 16:9 para o vídeo */
   overflow: hidden;
@@ -15,8 +15,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .modal-content video {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 50%;
+  max-height: 50%;
   object-fit: contain; /* Faz a imagem se ajustar mantendo a proporção */
 }

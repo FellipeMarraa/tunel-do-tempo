@@ -7,6 +7,7 @@ export class DialogService {
 
   isInitialPage: any;
   paginaAtual: any = 1;
+  showVideo: any = false;
 
   setInicialPage(isInitial: any): void {
     this.isInitialPage = isInitial;
@@ -22,6 +23,14 @@ export class DialogService {
 
   getPaginaAtual(){
     return this.paginaAtual;
+  }
+
+  setShowVideo(showVideo: boolean){
+    this.showVideo = showVideo;
+  }
+
+  getShowVideo(){
+    return this.showVideo;
   }
 
 

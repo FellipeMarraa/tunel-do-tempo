@@ -70,53 +70,53 @@ export class GameComponent implements OnInit {
   titleTips: string = 'Dica';
 
   // Question 1
-  input1questao1: any = '';
-  input2questao1: any = '';
+  input1questao1: any = 'IMPLICANTE';
+  input2questao1: any = 'NEOQEAV';
 
   // Question 2
-  input1questao2: string = '';
+  input1questao2: string = '27/07/2014';
 
   // Question 3
-  input1questao3: string = '';
+  input1questao3: string = '29/08/2014';
 
   // Question 4
-  input1questao4: string = '';
+  input1questao4: string = '13/10/2014';
 
   // Question 5
-  input1questao5: string = '';
+  input1questao5: string = 'CONHECEU MEUS PAIS';
 
   // Question 6
-  input1questao6: string = '';
-  input2questao6: string = '';
+  input1questao6: string = 'GANHEI MINHA ALIANCA';
+  input2questao6: string = '05/02/2015';
 
   // Question 7
-  input1questao7: string = '';
-  input2questao7: string = '';
+  input1questao7: string = '12/02/2015';
+  input2questao7: string = '7 MESES';
 
   // Question 8
-  input1questao8: string = '';
+  input1questao8: string = 'AMORZINHO, NENEM, BEBE, PAIXAUM, FE, VIDA';
 
   // Question 9
-  input1questao9: string = '';
+  input1questao9: string = 'FOMOS NO CIA';
 
   // Question 10
-  input1questao10: string = '';
+  input1questao10: string = 'PORQUE EU NUNCA VOU ESTAR SOZINHA';
 
   // Question 11
-  input1questao11: string = '';
+  input1questao11: string = 'CASAR';
 
   // Question 12
-  input1questao12: string = '';
+  input1questao12: string = 'VOCE CUIDA DE MIM, VOCE RI DAS MINHAS PIADAS SEM GRACA, VOCE ME ESCUTA CANTAR SEMPRE, VOCE SE PREOCUPA COMIGO';
 
   // Question 13
-  input1questao13: string = '';
+  input1questao13: string = 'VALE UM ALMOCO/JANTAR FEITO POR MIM, VALE EU REALIZAR UM DESEJO SEU, VALE UMA TARDE ESPECIAL, VALE UM SUPER ABRACO';
 
   // Question 14
-  input1questao14: string = '';
+  input1questao14: string = '2192, 313, 52608, 72, 6';
 
   // Question 15
-  input1questao15: string = '';
-  input2questao15: string = '';
+  input1questao15: string = 'NOIVADO';
+  input2questao15: string = 'ALIANCA';
 
 
   openTips() {
@@ -226,7 +226,7 @@ export class GameComponent implements OnInit {
         }
         break;
       case 7:
-        if (this.input1questao7.toUpperCase().includes('12/07/2015') && this.input2questao7.toUpperCase().includes('7 MESES')) {
+        if (this.input1questao7.toUpperCase().includes('12/02/2015') && this.input2questao7.toUpperCase().includes('7 MESES')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao7, this.input2questao7]);
           this.resetTips();
@@ -262,7 +262,7 @@ export class GameComponent implements OnInit {
         }
         break;
       case 10:
-        if (this.input1questao10.toUpperCase().includes('SOZINHA')) {
+        if (this.input1questao10.toUpperCase().includes('PORQUE EU NUNCA VOU ESTAR SOZINHA')) {
           this.questionNumber++;
           this.salvarResposta(this.questionNumber, [this.input1questao10, ''])
           this.resetTips();
@@ -324,6 +324,8 @@ export class GameComponent implements OnInit {
       case 15:
         if (this.input1questao15.toUpperCase().includes('NOIVADO') && this.input2questao15.toUpperCase().includes('ALIANCA')) {
           this.salvarResposta(this.questionNumber, [this.input1questao15, this.input2questao15]);
+          this.dialogService.setShowVideo(true);
+          this.router.navigate(['/video']);
           this.resetTips();
         } else {
           this.incorretAnswer = true;

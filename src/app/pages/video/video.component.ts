@@ -24,18 +24,28 @@ export class VideoComponent implements OnInit {
   @ViewChild('videoPlayer') videoPlayer!: ElementRef;
 
   videos = [
-    {url: 'https://1drv.ms/v/s!Ap5Wbk-5j8Yj92PLYzDxyHS2yqOH?e=2ZrX07'},
-    {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
-     {url: 'assets/videos/video.webm'},
+     {url: 'assets/videos/video.wmv'},
+    {url: 'assets/videos/video1.mov'},
+    {url: 'assets/videos/video2.mov'},
+    {url: 'assets/videos/video3.mov'},
+    {url: 'assets/videos/video4.mov'},
+    {url: 'assets/videos/video5.mov'},
+    {url: 'assets/videos/video6.mov'},
+    {url: 'assets/videos/video7.mov'},
+    {url: 'assets/videos/video8.mov'},
+    {url: 'assets/videos/video9.mov'},
+    {url: 'assets/videos/video10.mov'},
+    {url: 'assets/videos/video11.mov'},
+    {url: 'assets/videos/video12.mov'},
+    {url: 'assets/videos/video13.mov'},
+    {url: 'assets/videos/video14.mov'},
+    {url: 'assets/videos/video15.mov'},
+    {url: 'assets/videos/video16.mov'},
+    {url: 'assets/videos/video17.mov'},
+    {url: 'assets/videos/video18.mov'},
+    {url: 'assets/videos/video19.mov'},
+    {url: 'assets/videos/video20.mov'},
+    {url: 'assets/videos/video21.mov'}
 
   ];
 

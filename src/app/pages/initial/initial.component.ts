@@ -10,6 +10,7 @@ import {DialogService} from "../../services/dialog.service";
   styleUrls: ['./initial.component.scss']
 })
 export class InitialComponent implements OnInit{
+  showVideos: any;
 
   constructor(private router: Router,
               private renderer: Renderer2,
@@ -19,6 +20,7 @@ export class InitialComponent implements OnInit{
 
 
     ngOnInit() {
+    this.showVideos = this.dialogService.getShowVideo();
       this.dialogService.setInicialPage(true);
       this.dialogService.setPaginaAtual(1);
       this.renderer.setStyle(document.body, 'background-image', 'url(./assets/images/background-initial.png)');

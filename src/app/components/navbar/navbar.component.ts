@@ -9,7 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent{
 
   constructor(private router: Router) {
   }
